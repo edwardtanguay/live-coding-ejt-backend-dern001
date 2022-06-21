@@ -12,10 +12,17 @@ app.get('/', (req, res) => {
    <!DOCTYPE html>
    <html lang="en">
    <head>
-    <meta charset="UTF-8" />
-    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Info API</title>
+   <style>
+    body {
+        background-color: #ccc;
+        font-family: monospace;
+        font-size: 1.5rem;
+    }
+    a {
+        color: #777;
+    }
+   </style>
    </head>
    <body>
    <h1>Info API</h1> 
@@ -28,6 +35,14 @@ app.get('/', (req, res) => {
    </html> 
     `);
 });
+
+Object.entries(siteData).forEach(entry => {
+    const key = entry[0];
+    const value = entry[1];
+    app.get(`/${key}`, (req, res) => {
+        res.send(value);
+    });
+})
 
 app.listen(port, () => {
 	console.log(`Listening at http://localhost:${port}`);
