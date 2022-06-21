@@ -27,7 +27,7 @@ app.get('/', (req, res) => {
    </style>
    </head>
    <body>
-   <h1>Info API</h1> 
+   <h1>Info API</h1>  
    <ul>
    <li><a href="${fullUrl}/all">${fullUrl}/all</a></li>
    ${Object.keys(siteData)
